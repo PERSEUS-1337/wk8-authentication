@@ -1,9 +1,10 @@
-import 'dart:html';
-
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class FirebaseAuthAPI {
   static final FirebaseAuth auth = FirebaseAuth.instance;
+  static final FirebaseFirestore db = FirebaseFirestore.instance;
 
   Stream<User?> getUser() {
     return auth.authStateChanges();
@@ -51,4 +52,14 @@ class FirebaseAuthAPI {
   void signOut() async {
     auth.signOut();
   }
+
+  void saveUserToFirestore(String? uid, String email) async {
+    try {
+      await db.collection("users").doc(uid).set({"email": email});
+    } on FirebaseException catch (e) {
+      print(e.message);
+    }
 }
+}
+
+
