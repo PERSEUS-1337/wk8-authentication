@@ -14,6 +14,7 @@ class _SignupPageState extends State<SignupPage> {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
 
+    /// Creating a text field with a controller and a decoration.
     final email = TextField(
       controller: emailController,
       decoration: const InputDecoration(
@@ -21,6 +22,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
 
+    /// This is creating a text field with a controller and a decoration.
     final password = TextField(
       controller: passwordController,
       obscureText: true,
@@ -29,7 +31,8 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
 
-    final SignupButton = Padding(
+    /// This is creating a button that will call the signUp function in the AuthProvider.
+    final signupButton = Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
         onPressed: () {
@@ -43,6 +46,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
     );
 
+    /// This is creating a button that will navigate back to the previous page.
     final backButton = Padding(
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
@@ -67,7 +71,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
             email,
             password,
-            SignupButton,
+            signupButton,
             backButton
           ],
         ),

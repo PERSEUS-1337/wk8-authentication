@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
 
+    /// This is creating a text field for the user to enter their email.
     final email = TextField(
       key: const Key('emailField'),
       controller: emailController,
@@ -23,6 +24,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    /// This is creating a text field for the user to enter their password.
     final password = TextField(
       key: const Key('pwField'),
       controller: passwordController,
@@ -32,11 +34,13 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    /// This is creating a button that will allow the user to log in.
     final loginButton = Padding(
       key: const Key('loginButton'),
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
         onPressed: () {
+          /// This is calling the signIn method in the AuthProvider class.
           context
           .read<AuthProvider>()
           .signIn(emailController.text, passwordController.text);
@@ -45,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    /// This is creating a button that will allow the user to sign up.
     final signUpButton = Padding(
       key: const Key('signUpButton'),
       padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -60,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+    /// This is creating the layout of the login page.
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
